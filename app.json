@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "pets-dating",
+    "slug": "pets-dating",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "pets-dating"
+}
