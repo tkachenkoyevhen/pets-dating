@@ -1,18 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import Button from './src/components/Button';
+import Input from './src/components/Input';
 
 
 function Home () {
   return (
     <View style={styles.container}>
-      <Text>Log in</Text>
-      <TextInput style={styles.input} placeholder="Username" />
-      <TextInput style={styles.input} placeholder="Password" secureTextEntry={true} />
-      <Button title="Login" />
+      <Text>Please enter credentials</Text>
+      <Input placeholder="Username" />
+      <Input placeholder="Password" secureTextEntry={true} />
+      <Button title="Sign in" />
       <StatusBar style="auto" />
     </View>
   );
@@ -50,14 +53,7 @@ const Tab = createBottomTabNavigator();
 function App () {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home" screenOptions={({ route }) => {
-        console.log(route.name)
-        // return {
-        //   tabBarIcon: ({ focused, color, size }) => {
-        //     console.log(route.name, focused, color, size)
-        //   }
-        // }
-      }}>
+      <Tab.Navigator initialRouteName="Home">
         <Tab.Screen name="Home" component={Home} options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
@@ -89,15 +85,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  input: {
-    height: 40,
-    width: 220,
-    marginTop: 10,
-    paddingHorizontal: 8,
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: '#000'
   }
 });
 
