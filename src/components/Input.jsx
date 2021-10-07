@@ -2,9 +2,20 @@ import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
 export default function Input (props) {
-  const { placeholder = '', value, secureTextEntry = false } = props;
+  const {
+    onChangeText,
+    placeholder = '',
+    value,
+    secureTextEntry = false
+  } = props;
+
   return (
-    <TextInput style={styles.input} value={value} placeholder={placeholder} secureTextEntry={secureTextEntry} />
+    <TextInput onChangeText={onChangeText}
+      style={styles.input}
+      value={value}
+      placeholder={placeholder}
+      secureTextEntry={secureTextEntry}
+    />
   )
 }
 
